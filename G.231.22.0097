@@ -1,0 +1,39 @@
+<?php
+// Variabel JSON
+$json_data = '{
+  "name": "Supri",
+  "age": 21,
+  "email": "Supriyanto@gmail.com",
+  "address": {
+    "street": "Pantura",
+    "city": "Demak",
+    "zipcode": "12345"
+  }
+}';
+
+// Decode JSON menjadi PHP Object
+$obj_data = json_decode($json_data);
+
+// Akses nilai di dalam PHP Object
+echo "Object:<br>";
+echo "Name: " . $obj_data->name . "<br>";   // Output: Supri
+echo "Age: " . $obj_data->age . "<br>";     // Output: 21
+echo "Email: " . $obj_data->email . "<br>"; // Output: Supriyanto@gmail.com
+
+// Akses nilai di dalam object yang bersarang (nested object)
+echo "Street: " . $obj_data->address->street . "<br>"; // Output: Pantura
+echo "City: " . $obj_data->address->city . "<br><br>";     // Output: Demak
+
+// Decode JSON menjadi PHP Array
+$array_data = json_decode($json_data, true);
+
+// Akses nilai di dalam PHP Array
+echo "Array:<br>";
+echo "Name: " . $array_data['name'] . "<br>";   // Output: Supri
+echo "Age: " . $array_data['age'] . "<br>";     // Output: 21
+echo "Email: " . $array_data['email'] . "<br>"; // Output: Supriyanto@gmail.com
+
+// Akses nilai di dalam array yang bersarang (nested array)
+echo "Street: " . $array_data['address']['street'] . "<br>"; // Output: Pantura
+echo "City: " . $array_data['address']['city'] . "<br>";     // Output: Demak
+?>
